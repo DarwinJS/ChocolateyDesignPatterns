@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>dotnet35</id>
+    <id>universaldotnet35</id>
     <version>3.5</version>
     <title>MS Dot Net 3.5</title>
     <authors>Microsoft</authors>
@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This installs the .net framework version 3.5 (includes versions 2.0 and 3.0). This package does not directly download any software. It uses the Windows Features and functionality of the operating system to enable the feature. Depending on your OS version, it may download this software via the windows update service. You may want to use this package as a dependency package for packages requiring .net 3.5. If .net 3.5 is already enabled or installed, this package will do nothing.</description>
     <summary>The Microsoft .NET Framework 3.5</summary>
-    <releaseNotes>Under certain conditions the .NET 3.5 feature is set to "Removed" and will not download from Microsoft.  This package attemps to resolve this situation.</releaseNotes>
-    <tags>Microsoft .net Framework 3.5 admin</tags>
+    <releaseNotes>Under certain conditions the .NET 3.5 feature is set to "Removed" and will not download from Microsoft.  This package attemps to resolve this situation by enabling two policy registry keys.  If they keys have a current value, that value is backed up and restored.</releaseNotes>
+    <tags>Microsoft .net Framework 3.5 admin ChocolateyDesignPatterns</tags>
   </metadata>
 </package>
