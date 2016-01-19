@@ -35,14 +35,14 @@ If(-not (test-path "hklm:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5")) {
   }
 
 
-  $statments = "DISM /Online /NoRestart /Enable-Feature /FeatureName:NetFx3"
+  $statments = "/Online /NoRestart /Enable-Feature /FeatureName:NetFx3"
 
   If ([version]((gwmi win32_operatingsystem).version) -ge [version]"6.2.9200")
   { #Only add /All for OSes that support it.
     $statments = $statments + " /All"
   }
 
-  Start-ChocolateyProcessAsAdmin "$statements" -minimized -nosleep -validExitCodes @(0)
+  Start-ChocolateyProcessAsAdmin -exeToRun 'dism.exe' -statements "$statements" -minimized -nosleep -validExitCodes @(0)
 
   #Set registry keys back to defaults
   If ($SaveLocalKey -eq 'DidNotExist')
