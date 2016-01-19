@@ -59,7 +59,7 @@ If(-not (test-path "hklm:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5")) {
     }
     else
     {
-      New-ItemProperty -Path $RegKey -Name 'LocalSourcePath' -Type Multistring -Value $SaveLocalSourcePath -Force
+      New-ItemProperty -Path $RegKey -Name 'LocalSourcePath' -Type Multistring -Value $SaveLocalSourcePath -Force | out-null
     }
     If ($SaveRepairContentServerSource -eq 'DidNotExist')
     {
@@ -67,7 +67,7 @@ If(-not (test-path "hklm:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5")) {
     }
     else
     {
-      New-ItemProperty -Path $RegKey -Name 'RepairContentServerSource' -Type Multistring -Value $SaveLocalSourcePath -Force
+      New-ItemProperty -Path $RegKey -Name 'RepairContentServerSource' -Type DWord -Value $SaveRepairContentServerSource -Force | out-null
     }
   }
 }
