@@ -35,12 +35,14 @@ If(-not (test-path "hklm:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5")) {
   }
 
 
-  $statments = "/Online /NoRestart /Enable-Feature /FeatureName:NetFx3"
+  $statements = "/Online /NoRestart /Enable-Feature /FeatureName:NetFx3"
 
   If ([version]((gwmi win32_operatingsystem).version) -ge [version]"6.2.9200")
   { #Only add /All for OSes that support it.
-    $statments = $statments + " /All"
+    $statements = $statements + " /All"
   }
+
+  write-output "Running: dism.exe $statements"
 
   Start-ChocolateyProcessAsAdmin -exeToRun 'dism.exe' -statements "$statements" -minimized -nosleep -validExitCodes @(0)
 
