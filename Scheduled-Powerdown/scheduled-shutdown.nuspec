@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>scheduled-shutdown</id>
+    <version>1.1.0</version>
+    <title>Schedule Nightly or Weekend Shutdown of Windows (Usually for VMs)</title>
+    <authors>DarwinJS</authors>
+    <owners>DarwinJS</owners>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkId=296822</projectUrl>
+    <packageSourceUrl>https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5</packageSourceUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Schedule Nightly or Weekend Shutdown of Windows (Usually for VMs)</description>
+    <summary>Schedule Nightly or Weekend Shutdown of Windows (Usually for VMs)</summary>
+    <releaseNotes>
+    Remove this package to remove the scheduled shutdown.
+    Rerun this package with -Force to change the schedule.
+
+    This package can take the following command line parameters:
+
+    -params '"/Frequency:Daily"' (Default: Daily, Options: 'Daily','Weekly')
+    -params '"/ShutdownTime:23:50"' (Default: 23:50, Options: 24Hr Format)
+    -params '"/Weekday:FRI"' (Default: FRI, Options: MON,TUE,WED,THU,FRI,SAT,SUN)
+         THIS OPTION IS IGNORED when Frequency=Daily
+
+    Examples:
+    -params '"/Frequency:Weekly"'
+      Shutdown weekly on Friday at 23:50 (defaults used for Weekday and ShutdownTime)
+    -params '"/ShutdownTime:22:00"'
+      Shutdown Daily at 22:00 (defaults used for Frequency)
+    -params '"/Frequency:Weekly /ShutdownTime:22:30 /Weekday:TUE"'
+      Shutown weekly on Tuesday at 22:30
+
+    </releaseNotes>
+    <tags>scheduled-shutdown admin ChocolateyDesignPatterns</tags>
+  </metadata>
+</package>
