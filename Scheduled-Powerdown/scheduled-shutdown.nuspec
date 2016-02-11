@@ -9,8 +9,8 @@
     <projectUrl>http://go.microsoft.com/fwlink/?LinkId=296822</projectUrl>
     <packageSourceUrl>https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Schedule Nightly or Weekend Shutdown of Windows (Usually for VMs)</description>
-    <summary>Schedule Nightly or Weekend Shutdown of Windows (Usually for VMs)</summary>
+    <description>Schedule Nightly or Weekend Shutdown of Windows (Usually for Test VMs)</description>
+    <summary>Schedule Nightly or Weekend Shutdown of Windows (Usually for Test VMs) to save on unnecessary utilization.</summary>
     <releaseNotes>
     Remove this package to remove the scheduled shutdown.
     Rerun this package with -Force to change the schedule.

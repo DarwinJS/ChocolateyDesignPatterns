@@ -6,9 +6,6 @@ $Weekday = 'FRI'
 $Modifier  = $null
 
 $arguments = @{};
-ConvertFrom-ChocoPackageParamsToVariables -ParamString $env:chocolateyPackageParameters
-
-<#
 $packageParameters = $env:chocolateyPackageParameters;
 
 # Now parse the packageParameters using good old regular expression
@@ -52,7 +49,6 @@ if ($packageParameters) {
 } else {
     Write-Debug "No Package Parameters Passed in, using defaults.";
 }
-#>
 
 If ($Frequency -ieq "Weekly")
 {
