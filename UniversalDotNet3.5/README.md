@@ -48,7 +48,7 @@ Info                  CSI Transaction @0xb914dd25c0 initialized for deployment e
 Info                  CBS    Exec: Staging Package: Microsoft-Windows-NetFx3-Server ...
 Info                  CBS    Exec: Not able to pre-stage package: Microsoft-Windows-UpdateServices-CoreServices-Package ...
 
-## The Problem
+## The Possible Problems
 The features for .NET 3.5, 3.0 and 2.0 as well as PowerShell Version 2 are "removed" in a standard build of Windows Server 2012 R2 and later.
 In theory, these features should be acquired from Microsoft through Windows Update by default with no action on your part.
 In practice this happens *sometimes* but not *others*.  I have witnessed it working and not working on two virtually identical builds of Server 2012 R2 Standard Trial.  I compared all the Windows Updates policy registry keys and they were identical.  I compared output of Win32_OperatingSystem and they were identical (including sku).  The only substantial difference was that the one that worked had had *some* windows updates applied and on the other there were none.
@@ -60,7 +60,7 @@ However, this observation also supports the hypothesis that the state of the mac
 
 So the claimed default behavior seems to me to only be true if Windows Update has been touched successfully at least one time in the past.  I'm not sure if it's *any* type of touch or specific types - but it does consistently fail on that initial touch no matter which windows feature commands are used to try to pull a disabled feature.
 
-## The Solution: Make *Claimed* Default Behavior *Explicit*
+## Integrated Solution: #1 Make *Claimed* Default Behavior *Explicit*
 Most solutions you find on the web will indicate that you need to reference a copy of the folder ...\sources\sxs from the install media with the source parameter.   Although this works, if you are supporting a complex, multi-cloud environment, **using automation** it is much more than a small pain to provide this folder and all the required logic and config to relatively reference the folder in every environment.  It would be so much nicer if it would just work - and it can.
 The solution is to change the windows update policy keys to explicitly let it know it's OK to contact Windows Updates to pull down "Removed" features before attempting the first touch.
 
@@ -84,6 +84,12 @@ Windows Registry Editor Version 5.00
 "RepairContentServerSource"=dword:00000002
 ```
 **CAUTION**: Some sources I consulted indicated that if DISM or Add-WindowsFeature is run in a 32-bit **process**, you will need to tweak the windows update policy keys under Wow3264Node.  I did not have time nor need to test this.  **DO NOT ASSUME YOU WILL HAVE 64-bit PROCESS EXECUTION IN ANY GIVEN CIRCUMSTANCE**.  For instance, SCCM 2012 R2 *Application Objects* run as 64-bit *processes*, but SCCM 2012 R2 *Package Objects* run as *32-bit processes*.  Any management system agent (e.g. Chef, Pupppet) may run in either bitness and many vendors choose to retain a 32-bit *process* implementation because it allows the same agent code to service both 32 and 64-bit Windows clients.  Also, some agents take pains to run your code in a 64-bit *process* even though they themselves are a 32-bit executable.  For instance Chef 12.x client running as a service is a 32-bit ruby.exe *process*, but when running on the 64-bit OS it executes any requested PowerShell as a 64-bit *process*.  The same is true of Chocolatey execution - it's 32-bit, but runs PowerShell as 64-bit.
+
+## Integrated Solution #2: Temporarily Enable Windows Updates
+The Windows Updates service (wuauserv), must be enabled for dism to retrieve source from Microsoft.  For long running orcheastration that is installing a lot of software, it is not untypical to disable Windows updates so the software installs do not clash with Windows Installer and so that Windows Installer does not unnecessarily set "Reboot Required" markers that are then picked up by the automation.
+
+
+If this occurs, this package gives a meaningful error message as to the cause.  If the special package parameter -params '"/ToggleWUIfNecessary:true"' - is enabled, the package will enabled (but not start) the Windows Update service, run the dism command, then shutdown and re-disable the service.  These actions are only taken if the service is found with an explicitly "disabled" state when the package starts up.  In **most scenarios** is unlikely that Windows Update will get to the point of actually running updates before it is shutdown again.
 
 ## PostScript Note
 The reason the code in this solution uses "dism.exe" and only adds the "/All" command to specific versions of Windows, is to enable it work across the maximum scope of Windows Desktop and Server editions.
