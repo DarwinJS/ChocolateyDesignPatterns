@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>mssqlserver-standard</id>
+    <version>12.0.2000.8</version>
+    <title>SQL Server Standard</title>
+    <authors>Microsoft</authors>
+    <owners>DarwinJS, Workwave</owners>
+    <licenseUrl>http://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf</licenseUrl>
+    <projectUrl>http://www.microsoft.com/sqlserver/en/us/default.aspx</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Microsoft SQL Server Standard Edition. You MUST provide a parameter to point to SQL setup.exe.</summary>
+    <description>Microsoft SQL Server Standard Edition.
+
+      ATTENTION: No matter what version appears in the package title or version number, this package will install whatever version of SQL you point the parameter /SQL_SourceLocation to.
+
+      Requires: "Network Local" (same network) or local machine copy of licensed 5 GB SQL Full Edition Source.
+      You can either
+        [1] copy the source local with other automation before calling this package, or:
+        [2] reference it on a "network local" location by UNC or *already mapped* drive letter
+            If you provide credentials the remote location will be pre-authenticated before
+            starting setup.exe (whether a drive letter or UNC).
+            Omitting credentials tells this package that the account running this package
+            already has permissions to the remote share location without having to perform
+            authentication.
+            If there is no name resolution to the remote location, use its IP address instead of hostname.
+
+   This package can take the following command line parameters:
+
+     Command line defaults that are always on:
+     "/ACTION=Install /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS"
+
+     -params '"/SQL_WhatIf:true"' (just show the SQL command line, don't run SQL setup)
+        It takes a long time to run SQL setup - this command line lets you make sure you
+        are getting the SQL setup command line you want before you commit to full install testing
+
+     -params '"/SQL_SourceLocation:fullpathtosetup"' (Default: none)
+        Required parameter for root folder where SQL setup.exe can be found.
+
+     -params '"/SQL_SourceLocation:g:\sql"'
+        Local drive or *EXTERNALLY MAPPED* drive before script is run.
+
+     -params '"/SQL_SourceLocation:\\server\share\folder"' (Default: none)
+        UNC to to location.
+
+     -params '"/SQL_SourceLocation:\\192.0.0.200\share\folder"' (Default: none)
+        UNC to a server when name resolution is not available.
+
+     -params '"/SQL_SourceUser:remotemachinename\Username"' (Default: none)
+     -params '"/SQL_SourceUser:192.0.0.200\Username"' (Default: none)
+     -params '"/SQL_SourceUser:Domain\Username"' (Default: none)
+     -params '"/SQL_SourceUser:Username"' (Default: none)
+     -params '"/SQL_SourcePass:SuperSecurePassword"' (Default: none)
+        User name and password required to touch remote source location.
+        If user and password are provided, package will preauthenticate the network
+        location will be even if is is a UNC.
+        Leave both SQL_SourceUser and SQL_SourcePass blank if it is known that the
+        user chocolatey is running under already has access.  If you are running
+        under a service the SYSTEM AGTSVCACCOUNT will not have access to remote
+        machines (by default).
+
+
+     -params '"/SQL_QuietSwitch:QS"' (Default: Q, "QS" shows progress on screen)
+     -params '"/SQL_SAPwd:BestPassword2Have"' (Default: "BestP@ssword2Have") #Password must meet operating system configured complexity requirements or install will fail.
+
+     -params '"/SQL_SecurityMode:SQL"'
+     -params '"/SQL_QuietSwitch:QS"' (Default: Q, "QS" shows progress on screen)
+     -params '"/SQL_SAPwd:BestPassword2Have"' (Default: "BestP@ssword2Have") #Password must meet operating system configured complexity requirements or install will fail.
+     -params '"/SQL_Features:SQLENGINE"' (Default: SQLENGINE,FULLTEXT,CONN,IS,BC,SDK,SSMS,ADV_SSMS)
+     -params '"/SQL_InstanceName:SQLEXPRESS"' (Default: SQLEXPRESS)
+     -params '"/SQL_BROWSERSVCSTARTUPTYPE:Automatic"' (Default: Automatic)
+     -params '"/SQL_SQLSVCSTARTUPTYPE:Automatic"' (Default: Automatic)
+
+     -params '"/OverrideSQLCMDLineFile=$env:public\sqlparams.txt"'
+       Completely Override the package's internal command line with one from a text file which contains one line with the exact SQL command line.
+       Don't forget to add every option you need - don't forget these: "/ACTION=Install /Q /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS"
+
+     -params '"/SQL_WhatIf:true /OverrideSQLCMDLineFile=$env:public\sqlparams.txt"'
+       Just show the command from the file, but don't run it.
+
+     -params '"/SQL_QuietSwitch:QS /SQL_SAPwd:BestPassword2Have /SQL_SecurityMode:SQL /SQL_InstanceName:MSSQLSERVER"'
+       Use instance name from SQL full version and enable Mixed Mode security and show progress dialogs.
+     </description>
+     <releaseNotes>
+    </releaseNotes>
+    <tags>mssqlserver-standard admin Microsoft SQL Server</tags>
+    <dependencies>
+      <dependency id="dotnet3.5"/>
+    </dependencies>
+  </metadata>
+</package>
