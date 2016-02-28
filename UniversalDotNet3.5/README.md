@@ -12,7 +12,7 @@ That's a fair request!
 
 1. Download and compile this Chocolatey package: https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5
 
-2. If you don't use Chocolatey yet (I feel sorry for you), you can cherry pick my PowerShell code at: https://github.com/DarwinJS/ChocolateyDesignPatterns/blob/master/UniversalDotNet3.5/Tools/ChocolateyInstall.ps1
+2. If you don't use Chocolatey yet (I feel sorry for you :( ), you can cherry pick my PowerShell code at: https://github.com/DarwinJS/ChocolateyDesignPatterns/blob/master/UniversalDotNet3.5/Tools/ChocolateyInstall.ps1
 
 ## Symptoms This Code Resolves for Automation
 
