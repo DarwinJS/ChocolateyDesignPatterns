@@ -1,3 +1,11 @@
+## Introduction
+Working at a client site a while back I came across a problem when attempting to install .NET 3.5 on Server 2012 R2.  Microsoft decided to remove install source for this component from a default Windows build from ISO.  Technically the feature should be pulled from Microsoft Updates if you ask for it - but there are certain conditions under which it generates an error instead.  The classic answer you'll find posted a thousands times on the web is that you have to provide a pointer to the 275 MB ..\sources\sxs folder from the installation media.  Not a problem if you only build servers in one environment, but it is a unnecessary logistical nightmare if you support the need to build them on workstation hypervisors (VMWare, Hyper-V, VirtualBox) or in multiple isolated cloud environments or tenants.  Guess what - you don't actually have to do it - here's the fix...
+
+From comparing two nearly identical images - one with the problem and one without - I believe it comes down to whether Windows Updates has been touched at least once before the feature install request is made as well as whether the windows update service is currently disabled.  I work a lot with automated server builds and when .NET 3.5 is needed, it usually needs to be installed early in the process.  Unpredictable failures or the need to provide the sources\sxs folder both present a challenge to universally automating this installation.
+
+The below information describes the errors you might be getting if you have this problem - from both DISM and *WindowsFeature CMDLets and points to the code that fixes it.  The code can be used standalone, or you can download it and install it as a Chocolatey package.
+
+I will soon be publishing some courses on Chocolatey on PluralSight - if you'd like to be notified of when they are published - follow me on linked in: https://www.linkedin.com/in/darwinsanoy (open one of my posts and find the "Follow" button) or follow me on Twitter at https://twitter.com/CSIWindowscom (more technical articles like this one are not posted to Linked In).
 
 ## Symptoms This Code Resolves for Automation
 
