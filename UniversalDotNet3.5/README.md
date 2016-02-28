@@ -8,7 +8,7 @@ The below information describes the errors you might be getting if you have this
 I will soon be publishing some courses on Chocolatey on PluralSight - if you'd like to be notified of when they are published - follow me on linked in: https://www.linkedin.com/in/darwinsanoy (open one of my posts and find the "Follow" button) or follow me on Twitter at https://twitter.com/CSIWindowscom (more technical articles like this one are not posted to Linked In).
 
 ## Darwin, I Don't Want To Read Your Long Winded Root Cause Analysis - Just Give Me the "Fix It Pill"
-That's a fair request!
+That's a fair request! (FYI - the long winded Root Cause Analysis is what allowed your web search to find this article)
 
 1. Download and compile this Chocolatey package: https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5
 
