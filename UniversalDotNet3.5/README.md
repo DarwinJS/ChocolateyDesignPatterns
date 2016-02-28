@@ -9,7 +9,9 @@ I will soon be publishing some courses on Chocolatey on PluralSight - if you'd l
 
 ## Darwin, I Don't Want To Read Your Long Winded Root Cause Analysis - Just Give Me the "Fix It Pill"
 That's a fair request!
+
 1. Download and compile this Chocolatey package: https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5
+
 2. If you don't use Chocolatey yet (I feel sorry for you), you can cherry pick my PowerShell code at: https://github.com/DarwinJS/ChocolateyDesignPatterns/blob/master/UniversalDotNet3.5/Tools/ChocolateyInstall.ps1
 
 ## Symptoms This Code Resolves for Automation
