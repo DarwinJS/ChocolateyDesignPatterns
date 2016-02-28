@@ -9,6 +9,7 @@ I will soon be publishing some courses on Chocolatey on PluralSight - if you'd l
 
 ## Darwin, I Don't Want To Read Your Long Winded Root Cause Analysis - Just Give Me the "Fix It Pill"
 That's a fair request! 
+
 (FYI - the long winded Root Cause Analysis is what allowed your web search to find this article)
 
 1. Download and compile this Chocolatey package: https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5
