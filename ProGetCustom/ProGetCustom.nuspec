@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>progetcustom</id>
+    <version>4.2.1</version>
+    <title>ProGet</title>
+    <authors>Inedo</authors>
+    <owners>DarwinJS</owners>
+    <licenseUrl>http://inedo.com</licenseUrl>
+    <projectUrl>http://inedo.com/proget</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This customized version of Inedos original package enhances with:
+    * Uses the Inedo installer that includes embedded SQL express which avoids the failure of the SQL express chocolatey dependency
+    * Configures and uses IIS rather than the built-in http server (so that SSL can be configured on the free version)
+    * Configures IIS set for SSL (port 443) including creating a self-signed cert and binding it to port 443
+    .</description>
+    <summary>Proget Nuget server. Packaged by Workwave Engineering Services.</summary>
+    <releaseNotes />
+    <copyright />
+    <tags>admin progetcustom</tags>
+  </metadata>
+</package>
