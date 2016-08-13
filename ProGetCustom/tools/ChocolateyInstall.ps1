@@ -3,7 +3,7 @@ $installerType = 'EXE'
 $downloadUrl  = 'http://inedo.com/proget/download/sql/4.2.1'
 $silentArgs = '/S'
 #Leave port 80 to have both configured, have only 443 to prevent 80 from being configured
-$Port = 80
+$Port = 82
 #$Port = 443
 $LogFile = "$env:temp\wwproget_install.log"
 $validExitCodes = @(0)
