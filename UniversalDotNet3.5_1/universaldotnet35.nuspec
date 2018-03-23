@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>universaldotnet35</id>
+    <version>3.5</version>
+    <title>Universal Dot Net 3.5</title>
+    <authors>Microsoft</authors>
+    <owners>Darwin Sanoy</owners>
+    <licenseUrl>http://msdn.microsoft.com/en-US/cc300389.aspx</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkId=296822</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/DarwinJS/ChocolateyDesignPatterns/master/UniversalDotNet3.5/appicon.png</iconUrl>
+    <packageSourceUrl>https://github.com/DarwinJS/ChocolateyDesignPatterns/tree/master/UniversalDotNet3.5</packageSourceUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This installs the .net framework version 3.5 (includes versions 2.0 and 3.0). This package does not directly download any software. It uses the Windows Features and functionality of the operating system to enable the feature. Depending on your OS version, it may download this software via the windows update service. You may want to use this package as a dependency package for packages requiring .net 3.5. If .net 3.5 is already enabled or installed, this package will do nothing.</description>
+    <summary>The Microsoft .NET Framework 3.5</summary>
+    <releaseNotes>Under certain conditions the .NET 3.5 feature is set to "Removed" and will not download from Microsoft.  This package attemps to resolve this situation by enabling two policy registry keys.  If they keys have a current value, that value is backed up and restored.</releaseNotes>
+    <tags>Microsoft .net Framework 3.5 admin ChocolateyDesignPatterns universaldotnet35</tags>
+  </metadata>
+</package>

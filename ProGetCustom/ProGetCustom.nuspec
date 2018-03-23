@@ -3,7 +3,7 @@
   <metadata>
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>progetcustom</id>
-    <version>4.2.1</version>
+    <version>5.0.10</version>
     <title>ProGet</title>
     <authors>Inedo</authors>
     <owners>DarwinJS</owners>

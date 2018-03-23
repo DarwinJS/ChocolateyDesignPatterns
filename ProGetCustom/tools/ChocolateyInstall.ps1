@@ -1,6 +1,6 @@
 $packageName = 'progetcustom'
 $installerType = 'EXE'
-$downloadUrl  = 'http://inedo.com/proget/download/sql/4.2.1'
+$downloadUrl  = 'http://inedo.com/proget/download/sql/5.0.10'
 $silentArgs = '/S'
 #Leave port 80 to have both configured, have only 443 to prevent 80 from being configured
 $Port = 82
