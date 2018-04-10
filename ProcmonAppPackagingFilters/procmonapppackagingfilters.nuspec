@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>procmonapppackagingfilters</id>
+    <version>1.1.0</version>
+    <title>ProcmonAppPackagingFilters (Install)</title>
+    <authors>DarwinJS</authors>
+    <tags>procmonapppackagingfilters</tags>
+    <summary>A set of procmon filters useful for reverse engineering what changes application installers have made to a system.</summary>
+    <description>Procmon filters for understanding what changes a setup has made to a system.  Helpful for application virtualization or repackaging.</description>
+    <dependencies>
+      <dependency id="procmon" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
